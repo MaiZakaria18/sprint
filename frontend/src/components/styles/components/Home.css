@@ -1,0 +1,79 @@
+.home-container {
+	font-family: 'Arial', sans-serif;
+	color: #333;
+	/* Dark Slate Gray for text */
+	background-color: #A4C8E1;
+	/* Soft Blue background */
+	padding: 20px;
+}
+
+.hero {
+	background: #F9F9F9;
+	/* Soft Blue to Coral gradient */
+	padding: 60px 20px;
+	text-align: center;
+	border-radius: 10px;
+	/* Rounded edges */
+}
+
+.hero-title {
+	font-size: 2.5em;
+}
+
+.hero-subtitle {
+	font-size: 1.2em;
+}
+
+.cta-button {
+	background-color: #6a11cb;
+	/* Coral for buttons */
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	text-decoration: none;
+	transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+	background-color: #5067ce;
+	/* Darker Coral on hover */
+}
+
+.features,
+.about {
+	text-align: center;
+	padding: 40px 20px;
+	background-color: #F9F9F9;
+	/* Light Gray for sections */
+	border-radius: 10px;
+	/* Rounded edges */
+	margin: 20px 0;
+	/* Space between sections */
+}
+
+.feature-grid {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.feature-card {
+	background: white;
+	/* White for cards */
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	padding: 20px;
+	margin: 10px;
+	flex: 1 1 30%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+	text-align: center;
+	padding: 20px;
+	background-color: #F9F9F9;
+	/* Light Gray for footer */
+	border-radius: 10px;
+	/* Rounded edges */
+}

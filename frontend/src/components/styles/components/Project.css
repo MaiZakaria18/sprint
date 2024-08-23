@@ -1,0 +1,51 @@
+.project-container {
+	max-width: 600px;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+}
+
+.project-container h1 {
+	text-align: center;
+}
+
+.project-container form {
+	display: flex;
+	flex-direction: column;
+}
+
+.project-container input,
+.project-container textarea,
+.project-container select {
+	margin: 10px 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.project-container button {
+	background-color: #6a11cb;
+	color: white;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.project-container button:hover {
+	background-color: #2575fc;
+}
+
+.project-container ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.project-container li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px 0;
+}

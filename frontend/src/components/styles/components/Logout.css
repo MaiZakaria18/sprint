@@ -1,0 +1,33 @@
+.logout-container {
+	max-width: 400px;
+	margin: auto;
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	background-color: #f9f9f9;
+	/* Light background for the container */
+}
+
+.logout-button {
+	background-color: #6a11cb;
+	/* Coral color for the button */
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+	background-color: #5067ce;
+	/* Darker coral on hover */
+}
+
+p {
+	margin-top: 15px;
+	color: #333;
+	/* Dark text for better readability */
+}
