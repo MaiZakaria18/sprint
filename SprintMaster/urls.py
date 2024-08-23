@@ -23,6 +23,4 @@ urlpatterns = [
     path('', include('projects.urls')),
     path('users/', include('users.urls')),
     path('', include('task.urls')),
-    path('login/', TokenObtainPairView.as_view(), name='login'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='login-refresh'),
 ]

@@ -8,13 +8,13 @@ const Signup = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
-	const [role, setRole] = useState('employee');
+	const [role, setRole] = useState('junior');
 	const [error, setError] = useState('');
 
 	const handleSignup = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:8000/user/signup/', {
+			const response = await axios.post('http://localhost:8000/users/register/', {
 				username,
 				email,
 				password,
@@ -37,7 +37,7 @@ const Signup = () => {
 				<input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" required />
 				<input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm Password" required />
 				<select value={role} onChange={(e) => setRole(e.target.value)} required>
-					<option value="admin">Admin</option>
+					<option value="super_admin">Admin</option>
 					<option value="manager">Manager</option>
 					<option value="junior">Junior</option>
 					<option value="senior">Senior</option>

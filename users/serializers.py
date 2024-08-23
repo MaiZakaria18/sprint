@@ -4,21 +4,20 @@ from .models import CustomUser
 
 class UserRegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
-    password2 = serializers.CharField(write_only=True)
+    confirm_password = serializers.CharField(write_only=True)
     role = serializers.ChoiceField(
         choices=CustomUser.ROLE_CHOICES, default='junior')
 
     class Meta:
         model = CustomUser
-        fields = ['username', 'email', 'password',
-                  'password2', 'role']
+        fields = ['username', 'email', 'password', 'confirm_password', 'role']
         extra_kwargs = {
             'password': {'write_only': True},
-            'password2': {'write_only': True},
+            'confirm_password': {'write_only': True},
         }
 
     def validate(self, data):
-        if data['password'] != data['password2']:
+        if data['password'] != data['confirm_password']:
             raise serializers.ValidationError(
                 {"password": "Passwords must match."})
 
@@ -42,9 +41,7 @@ class UserUpdateSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['username', 'email', 'role']
-        extra_kwargs = {
-            'role': {'required': False}
-        }
+        extra_kwargs = {'role': {'required': False}}
 
     def update(self, instance, validated_data):
         instance.role = validated_data.get('role', instance.role)

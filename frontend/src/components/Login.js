@@ -14,7 +14,7 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:8000/user/', { email, password });
+			const response = await axios.post('http://localhost:8000/users/login/', { email, password });
 			console.log(response.data);
 			login(); // Call login function
 			navigate('/dashboard'); // Redirect to dashboard
