@@ -14,10 +14,10 @@ const Login = () => {
 	const handleLogin = async (e) => {
 		e.preventDefault();
 		try {
-			const response = await axios.post('http://localhost:8000/users/login/', { email, password });
+			const response = await axios.post('http://localhost:8000/login/', { email, password });
 			console.log(response.data);
 			login(); // Call login function
-			navigate('/dashboard'); // Redirect to dashboard
+			navigate('/'); // Redirect to home page
 		} catch (err) {
 			setError(err.response.data.error || 'Login failed');
 		}

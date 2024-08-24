@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from './AuthContext';
 import './styles/components/Home.css';
 
 const Home = () => {
+	const { isAuthenticated } = useAuth();
+
 	return (
 		<div className="home-container">
 			<header className="hero">
@@ -12,9 +15,18 @@ const Home = () => {
 				<p className="hero-subtitle">
 					Your Project Management <br /> Powerhouse ⚡
 				</p>
-				<Link to="/login" className="cta-button">
-					Get Started
-				</Link>
+				{isAuthenticated ? (
+					<div className="user-actions">
+						<h3>Welcome, User!</h3> {/* Display user information when authenticated */}
+						<Link to="/Project" className="cta-button">
+							Create Project
+						</Link>
+					</div>
+				) : (
+					<Link to="/login" className="cta-button">
+						Get Started
+					</Link>
+				)}
 			</header>
 
 			<section className="features" id="features">
@@ -42,8 +54,7 @@ const Home = () => {
 					<h2>Our Mission</h2>
 					<div className="about-content">
 						<p>
-							We were inspired to create Sprint Master as a revolution in
-							project management. Our passionate team is driven by efficiency, collaboration, and innovation.
+							We were inspired to create Sprint Master as a revolution in project management. Our passionate team is driven by efficiency, collaboration, and innovation.
 						</p>
 					</div>
 				</div>
