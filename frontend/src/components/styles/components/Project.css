@@ -1,51 +1,83 @@
+/* Common styles for project forms and details */
 .project-container {
-	max-width: 600px;
-	margin: auto;
-	padding: 20px;
-	border: 1px solid #ddd;
-	border-radius: 8px;
-	background-color: #f9f9f9;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
 .project-container h1 {
-	text-align: center;
+  text-align: center;
+  color: #333;
 }
 
 .project-container form {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-container input,
 .project-container textarea,
 .project-container select {
-	margin: 10px 0;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .project-container button {
-	background-color: #6a11cb;
-	color: white;
-	padding: 10px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+  background-color: #6a11cb;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .project-container button:hover {
-	background-color: #2575fc;
+  background-color: #2575fc;
 }
 
 .project-container ul {
-	list-style-type: none;
-	padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 
 .project-container li {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Additional styles for detail view */
+.project-container .project-detail {
+  margin-top: 20px;
+}
+
+.project-container .project-detail label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.project-container .project-detail p {
+  margin-bottom: 15px;
+}
+
+.project-container .actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.project-container .actions button {
+  padding: 8px 16px;
 }

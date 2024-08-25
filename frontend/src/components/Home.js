@@ -18,7 +18,7 @@ const Home = () => {
 				{isAuthenticated ? (
 					<div className="user-actions">
 						<h3>Welcome, User!</h3> {/* Display user information when authenticated */}
-						<Link to="/Project" className="cta-button">
+            			<Link to="/projects/create" className="cta-button">
 							Create Project
 						</Link>
 					</div>
