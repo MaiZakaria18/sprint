@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Make sure axios is imported
+import axios from 'axios';
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [success, setSuccess] = useState(null); // Add success state
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const [success, setSuccess] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProject = async () => {
       try {
-        const token = localStorage.getItem('token'); // Retrieve the token from local storage
+        const token = localStorage.getItem('token');
         const response = await axios.get(`http://localhost:8000/projects/${id}/`, {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the token in the request headers
+            Authorization: `Bearer ${token}`,
           },
         });
         setProject(response.data);
@@ -32,14 +32,14 @@ const ProjectDetail = () => {
 
   const handleDelete = async () => {
     try {
-      const token = localStorage.getItem('token'); // Retrieve the token from local storage
+      const token = localStorage.getItem('token');
       await axios.delete(`http://localhost:8000/projects/${id}/`, {
         headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the request headers
+          Authorization: `Bearer ${token}`,
         },
       });
-      setSuccess('Project deleted successfully'); // Set success message
-      navigate('/projects'); // Navigate back to project list after deletion
+      setSuccess('Project deleted successfully');
+      navigate('/projects');
     } catch (err) {
       setError('Failed to delete project');
     }
@@ -64,8 +64,14 @@ const ProjectDetail = () => {
               <button>Update Project</button>
             </Link>
             <button onClick={handleDelete}>Delete Project</button>
+            <Link to={`/projects/${id}/tasks`}>
+              <button>View All Tasks</button>
+            </Link>
+            <Link to={`/projects/${id}/tasks/create`}>
+              <button>Create New Task</button>
+            </Link>
           </div>
-          {success && <p className="success-message">{success}</p>} {/* Display success message */}
+          {success && <p className="success-message">{success}</p>}
         </div>
       )}
     </div>

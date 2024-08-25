@@ -1,11 +1,25 @@
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth.views import LogoutView as DjangoLogoutView
-from rest_framework import generics
+from rest_framework import generics, status
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.decorators import api_view
+from django.contrib.auth import get_user_model
 from .models import CustomUser
 from .serializers import UserRegistrationSerializer, UserUpdateSerializer
-from rest_framework.permissions import IsAuthenticated, AllowAny
-from rest_framework import status
-from rest_framework.response import Response
+
+CustomUser = get_user_model()
+
+
+@api_view(['GET'])
+def user_autocomplete(request):
+    query = request.GET.get('q', '')
+    if query:
+        users = CustomUser.objects.filter(username__istartswith=query)
+        user_data = [{'id': user.id, 'username': user.username}
+                     for user in users]
+        return Response(user_data, status=status.HTTP_200_OK)
+    return Response([], status=status.HTTP_200_OK)
 
 
 class RegisterUserView(generics.CreateAPIView):
@@ -31,7 +45,7 @@ class UpdateUserView(generics.UpdateAPIView):
 
 
 class LogoutView(DjangoLogoutView):
-    def post(self, request, *args, **kwargs):
-        """Handle logout via POST request."""
-        response = super().post(request, *args, **kwargs)
+    def get(self, request, *args, **kwargs):
+        """Handle logout via GET request."""
+        super().logout(request)
         return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)

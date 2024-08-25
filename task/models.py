@@ -1,5 +1,5 @@
 from django.db import models
-from django.conf import settings
+from users.models import CustomUser
 
 
 class Task(models.Model):
@@ -21,8 +21,7 @@ class Task(models.Model):
         max_length=20, choices=STATUS_CHOICES, default='pending')
     priority = models.CharField(
         max_length=20, choices=PRIORITY_CHOICES, default='low')
-    assigned_to = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+    assigned_to = models.ManyToManyField(CustomUser, blank=True)
     project = models.ForeignKey('projects.Project', on_delete=models.CASCADE)
     start_date = models.DateField()
     due_date = models.DateField()
