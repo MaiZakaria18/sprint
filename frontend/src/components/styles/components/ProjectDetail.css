@@ -1,90 +1,84 @@
 .project-detail-container {
 	font-family: 'Arial', sans-serif;
 	color: #333;
-	/* Dark Slate Gray for text */
-	background-color: #A4C8E1;
-	/* Soft Blue background */
+	background-color: #E8F4F9;
+	/* Softer light blue background */
 	padding: 20px;
 	border-radius: 10px;
-	/* Rounded edges */
 	margin: 20px auto;
-	/* Center the container */
 	max-width: 800px;
-	/* Limit the width */
 }
 
 .project-detail {
-	background: #F9F9F9;
-	/* Light Gray for project details */
+	background: #FFFFFF;
+	/* White background for project details */
 	padding: 30px;
 	border-radius: 10px;
-	/* Rounded edges */
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	/* Subtle shadow */
 }
 
 .project-detail h1 {
 	font-size: 2.5em;
-	/* Large title */
 	margin-bottom: 20px;
-	/* Space below title */
+	color: #333;
+	/* Dark text for title */
 }
 
 .project-detail h2 {
 	font-size: 2em;
-	/* Subheading size */
 	margin-bottom: 10px;
-	/* Space below subheading */
+	color: #555;
+	/* Slightly lighter text for subheading */
 }
 
 .project-detail p {
 	font-size: 1.1em;
-	/* Slightly larger text for readability */
 	margin: 10px 0;
-	/* Space between paragraphs */
+	color: #666;
+	/* Medium gray text for readability */
 }
 
 .project-actions {
 	text-align: center;
-	/* Center the action buttons */
 	margin-top: 20px;
-	/* Space above actions */
 }
 
 .btn {
 	display: inline-block;
 	background-color: #6a11cb;
-	/* Coral for buttons */
+	/* Primary button color */
 	color: white;
 	padding: 10px 20px;
 	margin: 10px;
-	/* Space between buttons */
 	border: none;
 	border-radius: 5px;
-	/* Rounded edges */
 	text-decoration: none;
 	transition: background-color 0.3s;
 }
 
 .btn:hover {
-	background-color: #5067ce;
-	/* Darker Coral on hover */
+	background-color: #4a8fd0;
+	/* Slightly lighter blue on hover */
 }
 
 .error-message {
-	color: red;
-	/* Red for error messages */
+	color: #D32F2F;
+	/* Dark red for error messages */
 	text-align: center;
-	/* Center error messages */
 	margin-top: 20px;
-	/* Space above error messages */
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #FFCDD2;
+	/* Light red background */
 }
 
 .success-message {
-	color: green;
-	/* Green for success messages */
+	color: #388E3C;
+	/* Dark green for success messages */
 	text-align: center;
-	/* Center success messages */
 	margin-top: 20px;
-	/* Space above success messages */
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #C8E6C9;
+	/* Light green background */
 }

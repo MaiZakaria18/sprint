@@ -80,7 +80,7 @@ const TaskCreate = () => {
         due_date: dueDate,
       };
       await handleCreateTask(taskData);
-      navigate(`/projects/${id}/tasks/`); // Navigate to TaskList on success
+      navigate(`/projects/${id}/tasklist/`); // Navigate to TaskList on success
     } catch (err) {
       setError('Failed to create task');
     }

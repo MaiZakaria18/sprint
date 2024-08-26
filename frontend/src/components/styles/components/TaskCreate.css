@@ -1,98 +1,116 @@
+/* TaskCreate Container */
 .task-create-container {
 	font-family: 'Arial', sans-serif;
 	color: #333;
-	/* Dark Slate Gray for text */
-	background-color: #A4C8E1;
-	/* Soft Blue background */
-	padding: 20px;
+	background-color: #f9f9f9;
+	padding: 30px;
 	border-radius: 10px;
-	/* Rounded edges */
-	margin: 20px auto;
-	/* Center the container */
 	max-width: 600px;
-	/* Limit the width */
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	/* Soft shadow for depth */
+	margin: 20px auto;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-	text-align: center;
-	/* Center the title */
+/* TaskCreate Heading */
+.task-create-container h1 {
+	font-size: 2em;
+	margin-bottom: 20px;
+	color: #002147;
 }
 
-form {
-	display: flex;
-	flex-direction: column;
-	/* Stack form elements vertically */
-}
-
+/* Form Group */
 .form-group {
-	display: flex;
-	/* Use flexbox for alignment */
-	align-items: center;
-	/* Center items vertically */
-	margin-bottom: 15px;
-	/* Space between form groups */
+	margin-bottom: 20px;
 }
 
-label {
-	width: 150px;
-	/* Fixed width for labels */
-	text-align: right;
-	/* Align text to the right */
-	margin-right: 10px;
-	/* Space between label and input */
+.form-group label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 10px;
+	color: #0056b3;
 }
 
-input[type="text"],
-input[type="date"],
-textarea,
-select {
-	flex: 1;
-	/* Allow inputs to take remaining space */
-	padding: 10px;
-	/* Padding for inputs */
-	border: 1px solid #ccc;
-	/* Light gray border */
-	border-radius: 5px;
-	/* Rounded edges */
-	font-size: 1em;
-	/* Font size for inputs */
-}
-
-textarea {
-	resize: vertical;
-	/* Allow vertical resizing */
+/* Input Fields */
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
 	width: 100%;
-	/* Full width for textarea */
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1em;
+	color: #333;
 }
 
-button {
+.form-group textarea {
+	resize: vertical;
+}
+
+/* Dropdown Selection */
+.form-group select {
+	appearance: none;
+	background: #f4f2f6;
+}
+
+/* Assigned Users Container */
+.assigned-users-container {
+	margin-top: 10px;
+}
+
+.assigned-users {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.assigned-user {
+	background-color: #e9ecef;
+	padding: 5px 10px;
+	border-radius: 5px;
+	font-size: 0.9em;
+	display: flex;
+	align-items: center;
+}
+
+.assigned-user button {
+	margin-left: 10px;
+	padding: 2px 5px;
+	background-color: #dc3545;
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.assigned-user button:hover {
+	background-color: #c82333;
+}
+
+/* Submit Button */
+button[type="submit"] {
 	display: inline-block;
+	padding: 10px 20px;
 	background-color: #6a11cb;
-	/* Coral for buttons */
 	color: white;
-	padding: 10px 15px;
 	border: none;
 	border-radius: 5px;
-	/* Rounded edges */
 	cursor: pointer;
-	/* Pointer cursor on hover */
-	transition: background-color 0.3s;
-	width: 100%;
-	/* Full width for button */
+	transition: background-color 0.3s ease;
+	font-size: 1em;
+	margin-top: 20px;
 }
 
-button:hover {
+button[type="submit"]:hover {
 	background-color: #5067ce;
-	/* Darker Coral on hover */
 }
 
+/* Error Message */
 .error-message {
-	color: red;
-	/* Red for error messages */
+	color: #d32f2f;
+	background-color: #ffebee;
+	padding: 10px;
+	border-radius: 5px;
 	text-align: center;
-	/* Center error messages */
-	margin-top: 10px;
-	/* Space above error messages */
+	margin-top: 20px;
 }

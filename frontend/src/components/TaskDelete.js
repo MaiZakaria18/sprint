@@ -17,7 +17,7 @@ const TaskDelete = () => {
         },
       });
 
-      navigate(`/projects/${id}/tasks`);
+      navigate(`/projects/${id}/tasklist`);
     } catch (error) {
       console.error('Error deleting task:', error);
       alert('Failed to delete task');
@@ -29,7 +29,7 @@ const TaskDelete = () => {
       <h1>Delete Task</h1>
       <p>Are you sure you want to delete this task?</p>
       <button onClick={handleDeleteTask}>Delete</button>
-      <button onClick={() => navigate(`/projects/${id}/tasks`)}>Cancel</button>
+      <button onClick={() => navigate(`/projects/${id}/tasklist`)}>Cancel</button>
     </div>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './styles/components/ProjectCreate.css'; // Import your CSS file
 
 const ProjectCreate = () => {
   const [name, setName] = useState('');
@@ -13,27 +14,23 @@ const ProjectCreate = () => {
 
   const handleCreateProject = async (projectData) => {
     try {
-      const token = localStorage.getItem('token'); // Retrieve the access token
-
-      let response = await axios.post('http://localhost:8000/projects/', projectData, {
+      const token = localStorage.getItem('token');
+      const response = await axios.post('http://localhost:8000/projects/create/', projectData, {
         headers: {
-          Authorization: `Bearer ${token}`, // Include the token in the request headers
+          Authorization: `Bearer ${token}`,
         },
       });
-
       return response.data;
     } catch (error) {
       if (error.response && error.response.data.code === 'token_not_valid') {
         try {
-          // If the access token is invalid or expired, attempt to refresh it
           const refreshResponse = await axios.post('http://localhost:8000/login/refresh/', {
-            refresh: localStorage.getItem('refreshToken'), // Correct refresh token URL
+            refresh: localStorage.getItem('refreshToken'),
           });
           const newAccessToken = refreshResponse.data.access;
-          localStorage.setItem('token', newAccessToken); // Store the new access token
+          localStorage.setItem('token', newAccessToken);
 
-          // Retry the original request with the new access token
-          const retryResponse = await axios.post('http://localhost:8000/projects/', projectData, {
+          const retryResponse = await axios.post('http://localhost:8000/projects/create/', projectData, {
             headers: {
               Authorization: `Bearer ${newAccessToken}`,
             },
@@ -44,51 +41,82 @@ const ProjectCreate = () => {
           console.error('Failed to refresh token:', refreshError);
           throw refreshError;
         }
+      } else if (error.response && error.response.data) {
+        throw new Error(error.response.data.detail || 'Failed to create project');
       } else {
-        console.error('Error creating project:', error);
-        throw error;
+        throw new Error('Network error or server not responding');
       }
     }
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setError(null);
+
+    const projectData = {
+      name,
+      description,
+      start_date: startDate,
+      end_date: endDate,
+    };
+
     try {
-      const projectData = {
-        name,
-        description,
-        start_date: startDate,
-        end_date: endDate,
-      };
       await handleCreateProject(projectData);
-      navigate('/projects'); // Navigate to ProjectList after successful creation
+      navigate('/projects/'); // Navigate to project list on success
     } catch (err) {
-      setError('Failed to create project');
+      setError(err.message);
     }
   };
 
   return (
-    <div>
+    <div className="project-create-container">
       <h1>Create New Project</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Project Name:
-          <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-        </label>
-        <label>
-          Description:
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-        </label>
-        <label>
-          Start Date:
-          <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-        </label>
-        <label>
-          End Date:
-          <input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
-        </label>
+        <div className="form-group">
+          <label>Name:</label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+              setError(null);
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <label>Description:</label>
+          <textarea
+            value={description}
+            onChange={(e) => {
+              setDescription(e.target.value);
+              setError(null);
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <label>Start Date:</label>
+          <input
+            type="date"
+            value={startDate}
+            onChange={(e) => {
+              setStartDate(e.target.value);
+              setError(null);
+            }}
+          />
+        </div>
+        <div className="form-group">
+          <label>End Date:</label>
+          <input
+            type="date"
+            value={endDate}
+            onChange={(e) => {
+              setEndDate(e.target.value);
+              setError(null);
+            }}
+          />
+        </div>
         <button type="submit">Create Project</button>
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );

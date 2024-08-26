@@ -1,49 +1,60 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import './styles/components/TaskList.css'; // Import the CSS file for styling
+import './styles/components/TaskList.css'; // Import your CSS file
 
 const TaskList = () => {
-  const { id } = useParams(); // Get projectId from URL parameters
+  const { id } = useParams(); // Get project_id from URL params
   const [tasks, setTasks] = useState([]);
+  const [projectName, setProjectName] = useState(''); // State to store project name
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchTasks = async () => {
+    const fetchProjectAndTasks = async () => {
       try {
         const token = localStorage.getItem('token'); // Get token from localStorage
-        const response = await axios.get(`http://localhost:8000/projects/${id}/tasks/`, {
+
+        // Fetch the project details to get the project name
+        const projectResponse = await axios.get(`http://localhost:8000/projects/${id}/`, {
           headers: {
-            Authorization: `Bearer ${token}`, // Include token in request headers
+            Authorization: `Bearer ${token}`,
           },
         });
-        console.log(response.data); // Check the structure of the fetched tasks
-        setTasks(response.data);
+        setProjectName(projectResponse.data.name); // Set the project name
+
+        // Fetch the tasks for the project
+        const tasksResponse = await axios.get(`http://localhost:8000/projects/${id}/tasklist/`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setTasks(tasksResponse.data);
       } catch (err) {
-        console.error('Error fetching tasks:', err);
-        setError('Failed to fetch tasks.');
+        console.error('Error fetching project or tasks:', err);
+        setError('Failed to fetch tasks or project details.');
       }
     };
 
-    fetchTasks();
+    fetchProjectAndTasks();
   }, [id]);
 
   return (
     <div className="task-list-container">
-      <h1>Tasks for Project {id}</h1>
+      <h1>Tasks for Project: {projectName}</h1>
       {error && <p className="error-message">{error}</p>}
       <ul className="task-list">
         {tasks.map((task) => (
           <li key={task.id} className="task-item">
-            <Link to={`/projects/${id}/tasks/${task.id}`} className="task-link">
-              {task.title}
-            </Link>
+            {task.title}
             <div className="task-actions">
-              <Link to={`/projects/${id}/tasks/${task.id}/update`} className="action-link">
+              <Link to={`/projects/${id}/tasks/${task.id}/update`} className="action-link task">
                 Update
               </Link>
-              <Link to={`/projects/${id}/tasks/${task.id}/delete`} className="action-link">
+              <Link to={`/projects/${id}/tasks/${task.id}/delete`} className="action-link task">
                 Delete
+              </Link>
+              <Link to={`/projects/${id}/tasks/${task.id}/detail`} className="action-link task">
+                Details
               </Link>
             </div>
           </li>

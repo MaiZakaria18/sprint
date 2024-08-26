@@ -68,7 +68,7 @@ const ProjectDetail = () => {
               <button className="btn">Update Project</button>
             </Link>
             <button className="btn delete" onClick={handleDelete}>Delete Project</button>
-            <Link to={`/projects/${id}/tasks`}>
+            <Link to={`/projects/${id}/tasklist`}>
               <button className="btn">View All Tasks</button>
             </Link>
             <Link to={`/projects/${id}/tasks/create`}>

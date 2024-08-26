@@ -1,0 +1,75 @@
+/* TaskDetail Container */
+.task-detail-container {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f0f4f8;
+    /* Light Gray-Blue background */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* TaskDetail Heading */
+.task-detail-container h1 {
+    font-size: 2.2em;
+    /* Slightly larger and more prominent title */
+    margin-bottom: 20px;
+    color: #002147;
+    /* Dark Blue for heading */
+}
+
+/* TaskDetail Paragraphs */
+.task-detail-container p {
+    font-size: 1.1em;
+    /* Readable font size */
+    margin: 15px 0;
+    /* Space between paragraphs */
+    line-height: 1.6;
+}
+
+/* Strong emphasis for labels */
+.task-detail-container p strong {
+    color: #0056b3;
+    /* Medium Blue for emphasis */
+}
+
+/* TaskDetail Button */
+.task-detail-container button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+    margin-top: 20px;
+}
+
+.task-detail-container button:hover {
+    background-color: #5067ce;
+    /* Slightly darker blue on hover */
+}
+
+/* Error Message Styling */
+.task-detail-container .error-message {
+    color: #d32f2f;
+    /* Red for errors */
+    background-color: #ffebee;
+    /* Light Red background */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Loading State */
+.task-detail-container .loading-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 20px;
+}
