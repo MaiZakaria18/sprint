@@ -1,0 +1,100 @@
+.project-list-container {
+	font-family: 'Arial', sans-serif;
+	color: #333;
+	/* Dark Slate Gray for text */
+	background-color: #A4C8E1;
+	/* Soft Blue background */
+	padding: 20px;
+	border-radius: 10px;
+	/* Rounded edges */
+	margin: 20px auto;
+	/* Center the container */
+	max-width: 800px;
+	/* Limit the width */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	/* Soft shadow for depth */
+}
+
+.project-table {
+	width: 100%;
+	/* Full width for the table */
+	border-radius: 10px 10px 0 0;
+	/* Allow for rounded corners */
+	border-spacing: 0;
+	/* Remove space between table cells */
+	margin-top: 20px;
+	/* Space above the table */
+}
+
+.project-table th,
+.project-table td {
+	padding: 12px;
+	/* Padding for table cells */
+	text-align: left;
+	/* Align text to the left */
+	border-bottom: 1px solid #ddd;
+	/* Add bottom border to table cells */
+}
+
+.project-table th {
+
+	/* Light cyan for header */
+	font-weight: bold;
+	/* Bold header text */
+}
+
+.project-table tr:last-child td {
+	border-bottom: none;
+	/* Remove bottom border for last row */
+}
+
+.project-table tr:hover {
+	background-color: #E1F5FE;
+	/* Very light cyan on hover */
+}
+
+.success-message,
+.error-message {
+	text-align: center;
+	/* Center messages */
+	margin: 10px 0;
+	/* Space above and below messages */
+	padding: 10px;
+	/* Padding for messages */
+	border-radius: 5px;
+	/* Rounded edges */
+}
+
+.success-message {
+	color: #388E3C;
+	/* Dark green for success messages */
+	background-color: #C8E6C9;
+	/* Light green background */
+}
+
+.error-message {
+	color: #D32F2F;
+	/* Dark red for error messages */
+	background-color: #FFCDD2;
+	/* Light red background */
+}
+
+.cta-button {
+	display: inline-block;
+	background-color: #6a11cb;
+	/* Coral for buttons */
+	color: white;
+	padding: 10px 15px;
+	margin: 5px;
+	/* Space between buttons */
+	border: none;
+	border-radius: 5px;
+	/* Rounded edges */
+	text-decoration: none;
+	transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+	background-color: #5067ce;
+	/* Darker Coral on hover */
+}

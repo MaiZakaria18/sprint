@@ -1,0 +1,58 @@
+.user-autocomplete {
+	position: relative;
+	/* Position relative for absolute suggestions */
+}
+
+.suggestions-list {
+	position: absolute;
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	width: 100%;
+	max-height: 200px;
+	/* Limit height */
+	overflow-y: auto;
+	/* Scroll if too many suggestions */
+	z-index: 1000;
+	/* Ensure it appears above other elements */
+}
+
+.suggestions-list li {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestions-list li:hover {
+	background-color: #f0f0f0;
+	/* Highlight on hover */
+}
+
+.selected-users {
+	margin-top: 10px;
+	/* Space above selected users */
+}
+
+.selected-user {
+	display: inline-block;
+	background-color: #B2EBF2;
+	/* Light cyan background for user tags */
+	border-radius: 5px;
+	/* Rounded edges */
+	padding: 5px 10px;
+	/* Padding for user tags */
+	margin-right: 5px;
+	/* Space between tags */
+}
+
+.selected-user button {
+	background: none;
+	/* No background for remove button */
+	border: none;
+	/* No border */
+	color: red;
+	/* Red color for remove button */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	margin-left: 5px;
+	/* Space between user name and button */
+}

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserAutocomplete from './UserAutocomplete'; // Import the autocomplete component
+import './styles/components/TaskCreate.css'; // Import the new styles
 
 const TaskCreate = () => {
   const { id } = useParams();
@@ -84,21 +85,20 @@ const TaskCreate = () => {
       setError('Failed to create task');
     }
   };
-
   return (
-    <div>
+    <div className="task-create-container">
       <h1>Create New Task</h1>
       <form onSubmit={handleSubmit}>
-        <label>
-          Title:
+        <div className="form-group">
+          <label>Title:</label>
           <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
-        </label>
-        <label>
-          Description:
+        </div>
+        <div className="form-group">
+          <label>Description:</label>
           <textarea value={description} onChange={(e) => setDescription(e.target.value)} />
-        </label>
-        <label>
-          Status:
+        </div>
+        <div className="form-group">
+          <label>Status:</label>
           <select value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="">Select status</option>
             {STATUS_CHOICES.map(choice => (
@@ -107,9 +107,9 @@ const TaskCreate = () => {
               </option>
             ))}
           </select>
-        </label>
-        <label>
-          Priority:
+        </div>
+        <div className="form-group">
+          <label>Priority:</label>
           <select value={priority} onChange={(e) => setPriority(e.target.value)}>
             <option value="">Select priority</option>
             {PRIORITY_CHOICES.map(choice => (
@@ -118,21 +118,41 @@ const TaskCreate = () => {
               </option>
             ))}
           </select>
-        </label>
-        <label>
-          Assign To:
-          <UserAutocomplete onUserSelect={(user) => setAssignedTo([...assignedTo, user])} />
-        </label>
-        <label>
-          Start Date:
+        </div>
+        <div className="form-group">
+          <label>Assign To:</label>
+          <div className="assigned-users-container">
+            <UserAutocomplete
+              onUserSelect={(user) => {
+                if (!assignedTo.some(u => u.id === user.id)) {
+                  setAssignedTo([...assignedTo, user]);
+                }
+              }}
+              assignedUsers={assignedTo}
+            />
+            {/* Display selected users with remove button */}
+            <div className="assigned-users">
+              {assignedTo.map(user => (
+                <span key={user.id} className="assigned-user">
+                  {user.username} {/* Adjust based on your user object structure */}
+                  <button type="button" onClick={() => setAssignedTo(assignedTo.filter(u => u.id !== user.id))}>
+                    Remove
+                  </button>
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="form-group">
+          <label>Start Date:</label>
           <input type="date" value={startDate} onChange={(e) => setStartDate(e.target.value)} />
-        </label>
-        <label>
-          Due Date:
+        </div>
+        <div className="form-group">
+          <label>Due Date:</label>
           <input type="date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
-        </label>
+        </div>
         <button type="submit">Create Task</button>
-        {error && <p>{error}</p>}
+        {error && <p className="error-message">{error}</p>}
       </form>
     </div>
   );

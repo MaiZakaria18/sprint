@@ -1,0 +1,98 @@
+.task-create-container {
+	font-family: 'Arial', sans-serif;
+	color: #333;
+	/* Dark Slate Gray for text */
+	background-color: #A4C8E1;
+	/* Soft Blue background */
+	padding: 20px;
+	border-radius: 10px;
+	/* Rounded edges */
+	margin: 20px auto;
+	/* Center the container */
+	max-width: 600px;
+	/* Limit the width */
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	/* Soft shadow for depth */
+}
+
+h1 {
+	text-align: center;
+	/* Center the title */
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	/* Stack form elements vertically */
+}
+
+.form-group {
+	display: flex;
+	/* Use flexbox for alignment */
+	align-items: center;
+	/* Center items vertically */
+	margin-bottom: 15px;
+	/* Space between form groups */
+}
+
+label {
+	width: 150px;
+	/* Fixed width for labels */
+	text-align: right;
+	/* Align text to the right */
+	margin-right: 10px;
+	/* Space between label and input */
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select {
+	flex: 1;
+	/* Allow inputs to take remaining space */
+	padding: 10px;
+	/* Padding for inputs */
+	border: 1px solid #ccc;
+	/* Light gray border */
+	border-radius: 5px;
+	/* Rounded edges */
+	font-size: 1em;
+	/* Font size for inputs */
+}
+
+textarea {
+	resize: vertical;
+	/* Allow vertical resizing */
+	width: 100%;
+	/* Full width for textarea */
+}
+
+button {
+	display: inline-block;
+	background-color: #6a11cb;
+	/* Coral for buttons */
+	color: white;
+	padding: 10px 15px;
+	border: none;
+	border-radius: 5px;
+	/* Rounded edges */
+	cursor: pointer;
+	/* Pointer cursor on hover */
+	transition: background-color 0.3s;
+	width: 100%;
+	/* Full width for button */
+}
+
+button:hover {
+	background-color: #5067ce;
+	/* Darker Coral on hover */
+}
+
+.error-message {
+	color: red;
+	/* Red for error messages */
+	text-align: center;
+	/* Center error messages */
+	margin-top: 10px;
+	/* Space above error messages */
+}

@@ -1,0 +1,90 @@
+.project-detail-container {
+	font-family: 'Arial', sans-serif;
+	color: #333;
+	/* Dark Slate Gray for text */
+	background-color: #A4C8E1;
+	/* Soft Blue background */
+	padding: 20px;
+	border-radius: 10px;
+	/* Rounded edges */
+	margin: 20px auto;
+	/* Center the container */
+	max-width: 800px;
+	/* Limit the width */
+}
+
+.project-detail {
+	background: #F9F9F9;
+	/* Light Gray for project details */
+	padding: 30px;
+	border-radius: 10px;
+	/* Rounded edges */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	/* Subtle shadow */
+}
+
+.project-detail h1 {
+	font-size: 2.5em;
+	/* Large title */
+	margin-bottom: 20px;
+	/* Space below title */
+}
+
+.project-detail h2 {
+	font-size: 2em;
+	/* Subheading size */
+	margin-bottom: 10px;
+	/* Space below subheading */
+}
+
+.project-detail p {
+	font-size: 1.1em;
+	/* Slightly larger text for readability */
+	margin: 10px 0;
+	/* Space between paragraphs */
+}
+
+.project-actions {
+	text-align: center;
+	/* Center the action buttons */
+	margin-top: 20px;
+	/* Space above actions */
+}
+
+.btn {
+	display: inline-block;
+	background-color: #6a11cb;
+	/* Coral for buttons */
+	color: white;
+	padding: 10px 20px;
+	margin: 10px;
+	/* Space between buttons */
+	border: none;
+	border-radius: 5px;
+	/* Rounded edges */
+	text-decoration: none;
+	transition: background-color 0.3s;
+}
+
+.btn:hover {
+	background-color: #5067ce;
+	/* Darker Coral on hover */
+}
+
+.error-message {
+	color: red;
+	/* Red for error messages */
+	text-align: center;
+	/* Center error messages */
+	margin-top: 20px;
+	/* Space above error messages */
+}
+
+.success-message {
+	color: green;
+	/* Green for success messages */
+	text-align: center;
+	/* Center success messages */
+	margin-top: 20px;
+	/* Space above success messages */
+}

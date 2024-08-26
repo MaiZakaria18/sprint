@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import './styles/components/TaskList.css'; // Import the CSS file for styling
 
 const TaskList = () => {
   const { id } = useParams(); // Get projectId from URL parameters
@@ -28,23 +29,27 @@ const TaskList = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className="task-list-container">
       <h1>Tasks for Project {id}</h1>
-      {error && <p>{error}</p>}
-      <ul>
+      {error && <p className="error-message">{error}</p>}
+      <ul className="task-list">
         {tasks.map((task) => (
-          <li key={task.id}>
-            <Link to={`/projects/${id}/tasks/${task.id}`}>{task.title}</Link>
-            <Link to={`/projects/${id}/tasks/${task.id}/update`} style={{ marginLeft: '10px' }}>
-              Update
+          <li key={task.id} className="task-item">
+            <Link to={`/projects/${id}/tasks/${task.id}`} className="task-link">
+              {task.title}
             </Link>
-            <Link to={`/projects/${id}/tasks/${task.id}/delete`} style={{ marginLeft: '10px' }}>
-              Delete
-            </Link>
+            <div className="task-actions">
+              <Link to={`/projects/${id}/tasks/${task.id}/update`} className="action-link">
+                Update
+              </Link>
+              <Link to={`/projects/${id}/tasks/${task.id}/delete`} className="action-link">
+                Delete
+              </Link>
+            </div>
           </li>
         ))}
       </ul>
-      <Link to={`/projects/${id}/tasks/create`}>Create New Task</Link>
+      <Link to={`/projects/${id}/tasks/create`} className="create-task-link">Create New Task</Link>
     </div>
   );
 };

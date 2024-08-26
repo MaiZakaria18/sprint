@@ -1,4 +1,3 @@
-// Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -22,7 +21,20 @@ const Login = () => {
       login(); // Call login function
       navigate('/'); // Redirect to home page
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed');
+      // Provide more specific error messages
+      if (err.response) {
+        if (err.response.status === 401) {
+          // Unauthorized error
+          setError('Incorrect email or password. Please try again.');
+        } else if (err.response.status === 404) {
+          // Not found error
+          setError('No account found with this email. Please check your email or sign up.');
+        } else {
+          setError('An unexpected error occurred. Please try again later.');
+        }
+      } else {
+        setError('Network error. Please check your connection and try again.');
+      }
     }
   };
 
