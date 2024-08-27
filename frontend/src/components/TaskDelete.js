@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
+import './styles/components/TaskDelete.css';
+
 
 const TaskDelete = () => {
   const { id, pk } = useParams(); // id is projectId and pk is taskId
