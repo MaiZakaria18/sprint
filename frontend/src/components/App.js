@@ -5,7 +5,6 @@ import { AuthProvider } from './AuthContext'; // Import AuthProvider
 import Home from './Home';
 import Login from './Login';
 import Signup from './Signup';
-import Dashboard from './Dashboard';
 import Logout from './Logout';
 import Navbar from './Navbar';
 import ProjectList from './ProjectList'; // Import ProjectList component
@@ -24,6 +23,14 @@ import Profile from './profile'; // Import Profile component
 import './styles/components/App.css';
 import PrivateRoute from './PrivateRoute';
 
+/**
+ * The main application component that renders the entire app.
+ * It wraps the app in the AuthProvider and Router components.
+ * It defines all the routes for the app, including routes for projects, tasks, users, and profile.
+ *
+ * @return {JSX.Element} The JSX element representing the app.
+ */
+
 const App = () => {
   return (
     <AuthProvider>
@@ -34,7 +41,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/dashboard" element={<PrivateRoute component={Dashboard} />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/projects" element={<PrivateRoute component={ProjectList} />} />
             <Route path="/projects/create" element={<PrivateRoute component={ProjectCreate} />} />

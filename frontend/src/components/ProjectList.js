@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './styles/components/ProjectList.css'; // Import the new styles
+import './styles/components/project/ProjectList.css'; // Import the new styles
 
+
+/**
+ * Renders a list of projects.
+ *
+ * @return {JSX.Element} The JSX element representing the project list.
+ */
 const ProjectList = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,6 +17,12 @@ const ProjectList = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    /**
+ * Fetches a list of projects from the server using an authorization token.
+ *
+ * @return {Promise<void>} - Returns a promise that resolves when the projects are successfully fetched.
+ * @throws {Error} - Throws an error if the fetch request fails or if there is no authorization token.
+ */
     const fetchProjects = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -30,6 +42,12 @@ const ProjectList = () => {
     fetchProjects();
   }, []);
 
+  /**
+ * Deletes a project by its ID.
+ *
+ * @param {number} projectId - The ID of the project to delete.
+ * @return {Promise<void>} - Returns a promise that resolves when the project is successfully deleted.
+ */
   const handleDelete = async (projectId) => {
     try {
       const token = localStorage.getItem('token');

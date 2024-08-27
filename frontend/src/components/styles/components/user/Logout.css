@@ -11,19 +11,19 @@
 }
 
 .logout-button {
-	background-color: #6a11cb;
+	background-color: #e2e6ea;
 	/* Coral color for the button */
 	color: white;
 	padding: 10px 20px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s ease;
 	margin: 0;
 }
 
 .logout-button:hover {
-	background-color: #5067ce;
+	background-color: #6a11cf;
 	/* Darker coral on hover */
 }
 

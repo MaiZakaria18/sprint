@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './styles/components/UserUpdate.css'; // Import your CSS file
+import './styles/components/user/UserUpdate.css'; // Import your CSS file
 
+
+/**
+ * A React functional component for updating a user's profile information.
+ * 
+ * Fetches the user's current data from the server, displays a form for editing the user's information,
+ * and handles form submission to update the user's profile.
+ * 
+ * @return {JSX.Element} The JSX element representing the user update form.
+ */
 const UpdateUser = () => {
   const [formData, setFormData] = useState({
     username: '',
@@ -14,6 +23,11 @@ const UpdateUser = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    /**
+ * Fetches the currently logged-in user's data from the server.
+ * 
+ * @return {Promise<void>} A promise that resolves when the user data is fetched and updated in the component state.
+ */
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -32,11 +46,23 @@ const UpdateUser = () => {
     fetchUserData();
   }, []);
 
+  /**
+ * Handles changes to the form data by updating the corresponding state variable.
+ *
+ * @param {Event} e - The event object containing information about the change.
+ * @return {void} No return value.
+ */
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  /**
+ * Handles the submission of the user update form by sending a PUT request to the server to update the user's data.
+ *
+ * @param {Event} e - The event object containing information about the form submission.
+ * @return {Promise<void>} A promise that resolves when the form submission is complete.
+ */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

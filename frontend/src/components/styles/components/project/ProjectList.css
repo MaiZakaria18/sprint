@@ -10,6 +10,10 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.project-list-container h1 {
+	color: black;
+}
+
 .project-table {
 	width: 100%;
 	border-radius: 10px;
@@ -17,29 +21,35 @@
 	margin-top: 20px;
 }
 
+
+
 .project-table th,
 .project-table td {
 	padding: 12px;
 	text-align: left;
 	border-bottom: 1px solid #E0E0E0;
 	/* Light gray for table borders */
+	font-weight: bold;
+
 }
 
 .project-table th {
-	background-color: #A4C8E1;
-	/* Soft blue for header */
-	color: #333;
-	font-weight: bold;
+	background-color: #E8F4F9;
+	color: #000000;
+	border-radius: 10px;
+}
+
+.project-table tr:hover {
+	background-color: #b3b8b9;
+	transition: background-color 0.3s ease;
+	border-radius: 10px;
 }
 
 .project-table tr:last-child td {
 	border-bottom: none;
 }
 
-.project-table tr:hover {
-	background-color: #B3E5FC;
-	/* Slightly lighter blue on hover */
-}
+
 
 .success-message,
 .error-message {
@@ -65,18 +75,20 @@
 
 .cta-button {
 	display: inline-block;
-	background-color: #6a11cb;
+	background-color: #e2e6ea;
 	/* Primary button color */
-	color: white;
+	color: black;
 	padding: 10px 15px;
 	margin: 5px;
 	border: none;
 	border-radius: 5px;
 	text-decoration: none;
 	transition: background-color 0.3s;
+	font-weight: bold;
+
 }
 
 .cta-button:hover {
-	background-color: #4a8fd0;
+	background-color: #6a11cf;
 	/* Slightly lighter blue on hover */
 }

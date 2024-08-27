@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import './styles/components/TaskList.css'; // Import your CSS file
+import './styles/components/task/TaskList.css'; // Import your CSS file
 
+
+/**
+ * Renders a list of tasks for a specific project.
+ *
+ * @return {JSX.Element} The JSX element representing the task list.
+ */
 const TaskList = () => {
   const { id } = useParams(); // Get project_id from URL params
   const [tasks, setTasks] = useState([]);
@@ -10,6 +16,11 @@ const TaskList = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    /**
+ * Fetches project details and tasks for a specific project.
+ *
+ * @return {Promise<void>} - Returns a promise that resolves when the project details and tasks are successfully fetched.
+ */
     const fetchProjectAndTasks = async () => {
       try {
         const token = localStorage.getItem('token'); // Get token from localStorage

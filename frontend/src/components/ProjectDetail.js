@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './styles/components/ProjectDetail.css'; // Assuming you have a CSS file for styling
+import './styles/components/project/ProjectDetail.css';
 
+
+/**
+ * A functional component that displays the details of a project.
+ *
+ * @return {JSX.Element} The JSX element representing the project details.
+ */
 const ProjectDetail = () => {
   const { id } = useParams();
   const [project, setProject] = useState(null);
@@ -12,6 +18,11 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    /**
+ * Fetches the project details from the server and updates the state.
+ * 
+ * @return {Promise<void>} A promise that resolves when the project details are fetched.
+ */
     const fetchProject = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -31,6 +42,12 @@ const ProjectDetail = () => {
     fetchProject();
   }, [id]);
 
+  /**
+ * Deletes a project from the server.
+ *
+ * @async
+ * @return {Promise<void>} A promise that resolves when the project is deleted.
+ */
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {

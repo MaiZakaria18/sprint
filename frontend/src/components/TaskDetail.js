@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import './styles/components/TaskDetails.css'; // Import your CSS file
+import './styles/components/task/TaskDetail.css'; // Import your CSS file
 
+
+/**
+ * A functional component that displays the details of a specific task.
+ * It fetches the task and project details from the server using the provided ID and PK.
+ * If the data is successfully fetched, it renders the task details in a formatted layout.
+ * If an error occurs during the fetching process, it displays an error message.
+ *
+ * @return {JSX.Element} The JSX element representing the task details or an error message.
+ */
 const TaskDetail = () => {
   const { id, pk } = useParams(); // Extract project ID and task ID from URL params
   const navigate = useNavigate(); // Hook for navigation
@@ -11,6 +20,12 @@ const TaskDetail = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    /**
+ * Fetches project and task details from the server using the provided IDs and token.
+ * It handles errors during the fetching process and updates the error state accordingly.
+ *
+ * @return {Promise<void>} - Returns a promise that resolves when the details are successfully fetched.
+ */
     const fetchDetails = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -44,7 +59,7 @@ const TaskDetail = () => {
   return (
     <div>
       {task ? (
-        <div>
+        <div className="task-detail-container">
           <h1>Task Detail</h1>
           <p><strong>Project:</strong> {projectName}</p>
           <p><strong>Title:</strong> {task.title}</p>

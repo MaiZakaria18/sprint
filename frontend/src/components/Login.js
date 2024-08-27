@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from './AuthContext';
-import './styles/components/Login.css';
+import './styles/components/user/Login.css';
 
+
+/**
+ * A functional component that handles user login.
+ * It renders a login form, handles form submission, and redirects to the home page upon successful login.
+ * It also displays error messages for invalid credentials or network errors.
+ *
+ * @return {JSX.Element} The JSX element representing the login form and related components.
+ */
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,6 +19,15 @@ const Login = () => {
   const { login } = useAuth(); // Get login function from context
   const navigate = useNavigate();
 
+
+  /**
+ * Handles the login form submission, sends a POST request to the server to authenticate the user,
+ * and redirects to the home page upon successful login. It also displays error messages for
+ * invalid credentials or network errors.
+ *
+ * @param {Event} e - The form submission event.
+ * @return {Promise<void>} A promise that resolves when the login process is complete.
+ */
   const handleLogin = async (e) => {
     e.preventDefault();
     try {

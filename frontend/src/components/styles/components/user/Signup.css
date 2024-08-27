@@ -18,17 +18,18 @@ select {
 }
 
 button {
-	background-color: #6a11cb;
-	color: white;
+	background-color: #e2e6ea;
+	color: black;
+	font-weight: bold;
 	padding: 10px;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
-	transition: background-color 0.3s;
+	transition: background-color 0.3s ease;
 }
 
 button:hover {
-	background-color: #2575fc;
+	background-color: #6a11cf;
 }
 
 .error {

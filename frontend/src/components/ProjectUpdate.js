@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import './styles/components/ProjectUpdate.css';
+import './styles/components/project/ProjectUpdate.css';
 
+
+/**
+ * A React functional component for updating a project.
+ * It fetches the project data from the server, displays it in a form,
+ * and allows the user to update the project details.
+ * After a successful update, it navigates to the project list page.
+ *
+ * @return {JSX.Element} The JSX element representing the project update form.
+ */
 const ProjectUpdate = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -13,6 +22,14 @@ const ProjectUpdate = () => {
   const { id } = useParams(); // Extract project ID from URL
 
   useEffect(() => {
+    /**
+ * Fetches a project from the server using the provided ID.
+ * It retrieves the access token from local storage, includes it in the request headers,
+ * and updates the component state with the project data.
+ * If an error occurs, it sets an error message in the component state.
+ *
+ * @return {void}
+ */
     const fetchProject = async () => {
       try {
         const token = localStorage.getItem('token'); // Retrieve the access token
@@ -50,7 +67,13 @@ const ProjectUpdate = () => {
 
     fetchProject();
   }, [id]);
-
+  /**
+ * Updates a project with the given data.
+ *
+ * @param {Object} projectData - The data to update the project with.
+ * @return {Promise<Object>} A Promise that resolves to the updated project data.
+ * @throws {Error} If there is an error updating the project.
+ */
   const handleUpdateProject = async (projectData) => {
     try {
       const token = localStorage.getItem('token'); // Retrieve the access token
@@ -88,7 +111,12 @@ const ProjectUpdate = () => {
       }
     }
   };
-
+  /**
+ * Handles the form submission event asynchronously.
+ *
+ * @param {Event} event - The form submission event.
+ * @return {Promise<void>} A promise that resolves when the project is successfully updated and the user is navigated to the ProjectList page. If an error occurs, an error message is set.
+ */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

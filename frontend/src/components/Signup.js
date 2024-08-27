@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './styles/components/Signup.css';
+import './styles/components/user/Signup.css';
 
+
+/**
+ * Renders a signup form that allows users to register.
+ *
+ * @return {JSX.Element} The signup form component.
+ */
 const Signup = () => {
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
@@ -11,6 +17,14 @@ const Signup = () => {
 	const [role, setRole] = useState('junior');
 	const [error, setError] = useState('');
 
+	/**
+ * Handles the signup process by sending a POST request to the server with the provided credentials.
+ * If the request is successful, it redirects the user to the login page.
+ * If the request fails, it sets an error message in the component state.
+ *
+ * @param {SyntheticEvent} e - The event object triggered by the form submission.
+ * @return {void}
+ */
 	const handleSignup = async (e) => {
 		e.preventDefault();
 		try {

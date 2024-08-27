@@ -2,8 +2,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './styles/components/ProjectCreate.css'; // Import your CSS file
+import './styles/components/project/ProjectCreate.css'; // Import your CSS file
 
+
+/**
+ * Creates a new project by sending a POST request to the server with the provided project data.
+ * Handles token refresh if the current token is invalid.
+ *
+ * @param {object} projectData - The project data to be sent to the server.
+ * @return {object} The server's response data.
+ */
 const ProjectCreate = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -12,6 +20,14 @@ const ProjectCreate = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+
+  /**
+ * Handles the creation of a new project by sending a POST request to the server with the provided project data.
+ * If the current token is invalid, it attempts to refresh the token before retrying the request.
+ *
+ * @param {object} projectData - The project data to be sent to the server.
+ * @return {object} The server's response data.
+ */
   const handleCreateProject = async (projectData) => {
     try {
       const token = localStorage.getItem('token');

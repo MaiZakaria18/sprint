@@ -20,6 +20,7 @@
 .suggestions-list li {
 	padding: 10px;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .suggestions-list li:hover {
@@ -44,12 +45,10 @@
 	/* Space between tags */
 }
 
-.selected-user button {
-	background: none;
-	/* No background for remove button */
+.selected-user {
 	border: none;
 	/* No border */
-	color: red;
+	background-color: #e2e6ea;
 	/* Red color for remove button */
 	cursor: pointer;
 	/* Pointer cursor on hover */

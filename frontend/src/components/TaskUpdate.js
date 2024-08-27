@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import './styles/components/TaskUpdate.css'; // Import your CSS file
+import './styles/components/task/TaskUpdate.css'; // Import your CSS file
 
+
+/**
+ * A React functional component for updating a task.
+ * 
+ * Fetches task data from the server, displays a form for editing the task,
+ * and handles form submission to update the task.
+ * 
+ * @return {JSX.Element} The JSX element representing the task update form.
+ */
 const TaskUpdate = () => {
   const { id: projectId, pk: taskId } = useParams();
   const [taskData, setTaskData] = useState({
@@ -17,6 +26,12 @@ const TaskUpdate = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    /**
+ * Fetches task data from the server and updates the task data state.
+ *
+ * @async
+ * @return {Promise<void>}
+ */
     const fetchTaskData = async () => {
       try {
         const token = localStorage.getItem('token');
@@ -35,6 +50,13 @@ const TaskUpdate = () => {
     fetchTaskData();
   }, [projectId, taskId]);
 
+  /**
+ * Handles the task update process by sending a PUT request to the server with the updated task data.
+ * If the request is successful, it redirects the user to the task detail page.
+ * If the request fails, it sets an error message in the component state.
+ *
+ * @return {void}
+ */
   const handleUpdateTask = async () => {
     try {
       const token = localStorage.getItem('token');
@@ -52,7 +74,12 @@ const TaskUpdate = () => {
       setError(error.response?.data?.detail || 'Failed to update task');
     }
   };
-
+  /**
+ * Handles the task update form submission by preventing the default form submission behavior and triggering the task update process.
+ *
+ * @param {object} event - The form submission event.
+ * @return {void}
+ */
   const handleSubmit = (event) => {
     event.preventDefault();
     handleUpdateTask();

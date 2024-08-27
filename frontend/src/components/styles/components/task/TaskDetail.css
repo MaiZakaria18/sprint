@@ -1,7 +1,7 @@
 /* TaskDetail Container */
 .task-detail-container {
     font-family: 'Arial', sans-serif;
-    color: #333;
+    color: #0000;
     background-color: #f0f4f8;
     /* Light Gray-Blue background */
     padding: 30px;
@@ -16,8 +16,6 @@
     font-size: 2.2em;
     /* Slightly larger and more prominent title */
     margin-bottom: 20px;
-    color: #002147;
-    /* Dark Blue for heading */
 }
 
 /* TaskDetail Paragraphs */
@@ -31,7 +29,7 @@
 
 /* Strong emphasis for labels */
 .task-detail-container p strong {
-    color: #0056b3;
+    color: black;
     /* Medium Blue for emphasis */
 }
 
@@ -39,18 +37,18 @@
 .task-detail-container button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #6a11cb;
-    color: white;
+    background-color: #e2e6ea;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    font-size: 1em;
+    font-weight: bold;
     margin-top: 20px;
 }
 
 .task-detail-container button:hover {
-    background-color: #5067ce;
+    background-color: #6a11cf;
     /* Slightly darker blue on hover */
 }
 

@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import UserAutocomplete from './UserAutocomplete'; // Import the autocomplete component
-import './styles/components/TaskCreate.css'; // Import the new styles
+import './styles/components/task/TaskCreate.css'; // Import the new styles
 
+
+/**
+ * A functional component for creating new tasks within a project.
+ * 
+ * Handles task data submission, validation, and creation via API calls.
+ * 
+ * @return {JSX.Element} The task creation form and related UI elements.
+ */
 const TaskCreate = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
@@ -16,7 +24,6 @@ const TaskCreate = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  // Define status and priority choices
   const STATUS_CHOICES = [
     { value: 'pending', label: 'Pending' },
     { value: 'in_progress', label: 'In Progress' },
@@ -29,6 +36,15 @@ const TaskCreate = () => {
     { value: 'high', label: 'High' },
   ];
 
+  /**
+ * Creates a new task within a project.
+ *
+ * Sends a POST request to the server with the task data and authentication token.
+ * If the token is invalid, attempts to refresh it and retry the request.
+ *
+ * @param {object} taskData - The task data to be sent in the request body.
+ * @return {object} The response data from the server.
+ */
   const handleCreateTask = async (taskData) => {
     try {
       const token = localStorage.getItem('token');
@@ -67,6 +83,18 @@ const TaskCreate = () => {
     }
   };
 
+
+  /**
+ * Handles the task creation form submission.
+ *
+ * Prevents the default form submission behavior, constructs the task data object,
+ * and calls the handleCreateTask function to send the task data to the server.
+ * If the task creation is successful, navigates to the TaskList page.
+ * If an error occurs, sets the error message state with the error details.
+ *
+ * @param {object} event - The form submission event object.
+ * @return {void}
+ */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {

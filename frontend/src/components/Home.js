@@ -4,6 +4,13 @@ import { useAuth } from './AuthContext';
 import './styles/components/Home.css';
 
 
+/**
+ * A functional component representing the Home page of the application.
+ * It renders the hero section, features section, GitHub source code section, and the footer.
+ * The component uses the useAuth hook to check if the user is authenticated and conditionally renders the welcome message or the get started button.
+ *
+ * @return {JSX.Element} The JSX element representing the Home page.
+ */
 const Home = () => {
 	const { isAuthenticated } = useAuth();
 
@@ -18,7 +25,7 @@ const Home = () => {
 				</p>
 				{isAuthenticated ? (
 					<div className="user-actions">
-						<h3>Welcome</h3> {/* Display user information when authenticated */}
+						<h3>Welcome</h3>
 						<Link to="/projects/create" className="cta-button">
 							Create Project
 						</Link>
@@ -50,16 +57,18 @@ const Home = () => {
 				</div>
 			</section>
 
-			<section className="about" id="about">
+			<section className="github" id="github">
 				<div className="container">
-					<h2>Our Mission</h2>
-					<div className="about-content">
-						<p>
-							We were inspired to create Sprint Master as a revolution in project management. Our passionate team is driven by efficiency, collaboration, and innovation.
-						</p>
-					</div>
+					<h2>GitHub Source Code</h2>
+					<p>
+						You can find the source code for this project on GitHub.
+						<Link to="https://github.com/yourusername/sprint-master" className="cta-button" target="_blank" rel="noopener noreferrer">
+							View on GitHub
+						</Link>
+					</p>
 				</div>
 			</section>
+
 			<footer className="footer">
 				<p>© 2024 Sprint Master. All rights reserved.</p>
 			</footer>

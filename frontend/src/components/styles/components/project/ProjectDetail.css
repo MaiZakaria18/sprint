@@ -1,6 +1,5 @@
 .project-detail-container {
 	font-family: 'Arial', sans-serif;
-	color: #333;
 	background-color: #E8F4F9;
 	/* Softer light blue background */
 	padding: 20px;
@@ -9,32 +8,36 @@
 	max-width: 800px;
 }
 
+.project-detail-container h1 {
+	color: #000000;
+}
+
 .project-detail {
 	background: #FFFFFF;
 	/* White background for project details */
 	padding: 30px;
 	border-radius: 10px;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	color: black;
 }
 
 .project-detail h1 {
 	font-size: 2.5em;
 	margin-bottom: 20px;
-	color: #333;
 	/* Dark text for title */
 }
 
 .project-detail h2 {
+	color: black;
 	font-size: 2em;
 	margin-bottom: 10px;
-	color: #555;
 	/* Slightly lighter text for subheading */
 }
 
 .project-detail p {
+	color: black;
 	font-size: 1.1em;
 	margin: 10px 0;
-	color: #666;
 	/* Medium gray text for readability */
 }
 
@@ -45,7 +48,7 @@
 
 .btn {
 	display: inline-block;
-	background-color: #6a11cb;
+	background-color: #e2e6ea;
 	/* Primary button color */
 	color: white;
 	padding: 10px 20px;
@@ -54,10 +57,12 @@
 	border-radius: 5px;
 	text-decoration: none;
 	transition: background-color 0.3s;
+	font-weight: bold;
+	color: black;
 }
 
 .btn:hover {
-	background-color: #4a8fd0;
+	background-color: #6a11cf;
 	/* Slightly lighter blue on hover */
 }
 

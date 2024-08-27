@@ -99,3 +99,19 @@
 .cta-button:hover {
 	background-color: #5067ce;
 }
+
+
+.github {
+	text-align: center;
+	padding: 40px 20px;
+	background-color: #F9F9F9;
+	/* Light Gray for sections */
+	border-radius: 10px;
+	/* Rounded edges */
+	margin: 20px 0;
+	/* Space between sections */
+}
+
+.github .cta-button {
+	margin-top: 10px;
+}
