@@ -1,3 +1,4 @@
+// src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './AuthContext'; // Import AuthProvider
@@ -15,11 +16,13 @@ import TaskCreate from './TaskCreate'; // Import TaskCreate component
 import TaskUpdate from './TaskUpdate'; // Import TaskUpdate component
 import TaskDelete from './TaskDelete'; // Import TaskDelete component
 import TaskDetail from './TaskDetail'; // Import TaskDetail component
-import TaskList from './TaskList'; 
+import TaskList from './TaskList';
+import UserUpdate from './UserUpdate'; // Import UserUpdate component
+import UserDetail from './UserDetail';
+import UserAutocomplete from './UserAutocomplete';
+import Profile from './profile'; // Import Profile component
 import './styles/components/App.css';
 import PrivateRoute from './PrivateRoute';
-import UserAutocomplete from './UserAutocomplete';
-
 
 const App = () => {
   return (
@@ -42,8 +45,10 @@ const App = () => {
             <Route path="/projects/:id/tasks/:pk/update" element={<PrivateRoute component={TaskUpdate} />} />
             <Route path="/projects/:id/tasks/:pk/delete" element={<PrivateRoute component={TaskDelete} />} />
             <Route path="/projects/:id/tasks/:pk/detail" element={<PrivateRoute component={TaskDetail} />} />
+            <Route path="/users/update" element={<PrivateRoute component={UserUpdate} />} />
+            <Route path="/users/details" element={<PrivateRoute component={UserDetail} />} />
             <Route path="/users/autocomplete" element={<PrivateRoute component={UserAutocomplete} />} />
-
+            <Route path="/profile" element={<PrivateRoute component={Profile} />} />
           </Routes>
         </div>
       </Router>

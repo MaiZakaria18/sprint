@@ -1,0 +1,29 @@
+/* src/styles/components/UserProfile.css */
+
+.user-profile-container {
+    padding: 20px;
+}
+
+.update-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.update-link:hover {
+    text-decoration: underline;
+}
+
+.logout-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}

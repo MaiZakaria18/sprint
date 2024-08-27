@@ -82,9 +82,17 @@ const TaskCreate = () => {
       await handleCreateTask(taskData);
       navigate(`/projects/${id}/tasklist/`); // Navigate to TaskList on success
     } catch (err) {
-      setError('Failed to create task');
+      if (err.response && err.response.data) {
+        const errorMessages = Object.entries(err.response.data)
+          .map(([field, messages]) => `${field}: ${messages.join(', ')}`)
+          .join('; ');
+        setError(`Failed to create task: ${errorMessages}`);
+      } else {
+        setError('Failed to create task due to an unknown error.');
+      }
     }
   };
+
   return (
     <div className="task-create-container">
       <h1>Create New Task</h1>
