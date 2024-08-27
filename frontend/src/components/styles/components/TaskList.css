@@ -1,126 +1,59 @@
-.task-list-container {
-	padding: 20px;
-	background-color: #f4f7f8;
-	/* Slightly off-white background for a professional look */
-	border-radius: 8px;
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-	max-width: 900px;
-	/* Restrict width for a cleaner appearance */
-	margin: 20px auto;
-	/* Center container horizontally */
-}
-
-h1 {
-	font-size: 28px;
-	/* Slightly larger font size for emphasis */
-	margin-bottom: 20px;
-	color: #333;
-	/* Dark gray for improved readability */
-}
-
-.error-message {
-	color: #d32f2f;
-	/* Dark red for error messages */
-	background-color: #fddede;
-	/* Light red background */
-	padding: 15px;
-	border-radius: 5px;
-	margin-bottom: 20px;
-	text-align: center;
-}
-
-.task-list {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-
 .task-item {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
-	padding: 15px;
-	border-bottom: 1px solid #e0e0e0;
-	/* Light gray border for subtle separation */
-	font-size: 16px;
-	/* Standard font size for better readability */
-	background-color: #ffffff;
-	/* White background for tasks */
-	border-radius: 5px;
-	/* Rounded corners for each task item */
-	transition: background-color 0.3s;
-	/* Smooth transition for hover effect */
+	justify-content: space-between;
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
 }
 
-.task-item:hover {
-	background-color: #f1f1f1;
-	/* Light gray background on hover */
-}
-
-.task-link {
-	text-decoration: none;
-	color: #007bff;
-	/* Bootstrap blue for links */
+.completed {
+	color: green;
 	font-weight: bold;
-	transition: color 0.3s;
-	/* Smooth transition for color change */
 }
 
-.task-link:hover {
-	color: #0056b3;
-	/* Darker blue on hover */
-	text-decoration: underline;
+.checkmark {
+	margin-left: 10px;
+	color: green;
+	font-size: 1.2em;
 }
 
 .task-actions {
 	display: flex;
 	gap: 10px;
-	/* Space between action links */
 }
 
 .action-link {
-	color: #333;
-	/* Dark gray for action links */
 	text-decoration: none;
-	transition: color 0.3s;
-	/* Smooth transition for color change */
+	color: #007bff;
 }
 
-.action-link:hover {
-	color: #007bff;
-	/* Change color on hover for consistency */
-	text-decoration: underline;
+.action-link.task {
+	background-color: #f8f9fa;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	transition: background-color 0.3s;
+}
+
+.action-link.task:hover {
+	background-color: #e2e6ea;
 }
 
 .create-task-link {
 	display: inline-block;
 	margin-top: 20px;
-	padding: 10px 20px;
-	background-color: #6a11cb;
-	/* Primary action color */
+	padding: 10px 15px;
+	background-color: #007bff;
 	color: white;
-	border-radius: 5px;
 	text-decoration: none;
-	font-weight: bold;
+	border-radius: 5px;
 	transition: background-color 0.3s;
-	/* Smooth transition for hover effect */
 }
 
 .create-task-link:hover {
-	background-color: #4a8fd0;
-	/* Slightly lighter blue on hover */
+	background-color: #0056b3;
 }
 
-.task {
-	color: #007bff;
-	/* Bootstrap blue for task links */
-	font-weight: bold;
-	transition: color 0.3s;
-	/* Smooth transition for color change */
-}
-
-.task:hover {
-	color: #0056b3;
-	/* Darker blue on hover */
-	text-decoration: underline;
+.error-message {
+	color: red;
 }

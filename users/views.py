@@ -1,3 +1,4 @@
+from .serializers import UserSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.contrib.auth.views import LogoutView as DjangoLogoutView
 from rest_framework import generics, status
@@ -43,9 +44,31 @@ class UpdateUserView(generics.UpdateAPIView):
     def get_object(self):
         return self.request.user
 
-
 class LogoutView(DjangoLogoutView):
     def get(self, request, *args, **kwargs):
         """Handle logout via GET request."""
         super().logout(request)
         return Response({'detail': 'Successfully logged out.'}, status=status.HTTP_200_OK)
+
+
+class CurrentUserDetailView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
+
+# views.py
+
+
+class UserDetailView(generics.RetrieveAPIView):
+    queryset = CustomUser.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = 'pk'  # Ensure this matches the URL pattern
+
+class CurrentUserDetailView(generics.RetrieveAPIView):
+    serializer_class = UserSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user

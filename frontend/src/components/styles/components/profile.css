@@ -1,0 +1,70 @@
+/* profile.css */
+.profile {
+    position: absolute;
+    top: 60px;
+    /* Adjusted for better spacing */
+    right: 20px;
+    /* Added spacing from the edge */
+    background-color: #ffffff;
+    /* Clean white background */
+    border: 1px solid #e0e0e0;
+    /* Light gray border for a softer look */
+    border-radius: 8px;
+    /* Rounded corners for a modern look */
+    padding: 20px;
+    /* Increased padding for better spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Enhanced shadow for depth */
+    width: 250px;
+    /* Fixed width for consistency */
+    z-index: 1000;
+    /* Ensures the profile dropdown is on top */
+    font-family: Arial, sans-serif;
+    /* Consistent font family */
+}
+
+.profile a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    /* Dark gray text for readability */
+    text-decoration: none;
+    /* Remove underline from links */
+    border-radius: 4px;
+    /* Rounded corners for links */
+    transition: background-color 0.3s;
+    /* Smooth background color transition */
+}
+
+.profile a:hover {
+    background-color: #f0f0f0;
+    /* Light gray background on hover */
+}
+
+.logout-button {
+    display: block;
+    width: 100%;
+    /* Full width for the button */
+    padding: 10px;
+    margin-top: 15px;
+    /* Increased space above the button */
+    background-color: #007bff;
+    /* Primary color for the button */
+    color: white;
+    /* White text color */
+    border: none;
+    /* Remove border */
+    border-radius: 4px;
+    /* Rounded corners for the button */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    font-size: 16px;
+    /* Slightly larger font size for better readability */
+    transition: background-color 0.3s;
+    /* Smooth background color transition */
+}
+
+.logout-button:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+}

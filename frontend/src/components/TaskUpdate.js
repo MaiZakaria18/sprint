@@ -28,7 +28,7 @@ const TaskUpdate = () => {
         setTaskData(response.data);
       } catch (error) {
         console.error('Error fetching task:', error);
-        setError('Failed to fetch task');
+        setError(error.response?.data?.detail || 'Failed to fetch task');
       }
     };
 
@@ -49,7 +49,7 @@ const TaskUpdate = () => {
       navigate(`/projects/${projectId}/tasks/${taskId}/detail`);
     } catch (error) {
       console.error('Error updating task:', error);
-      setError('Failed to update task');
+      setError(error.response?.data?.detail || 'Failed to update task');
     }
   };
 
@@ -59,7 +59,7 @@ const TaskUpdate = () => {
   };
 
   return (
-    <div className="task-update-container">
+    <div className={`task-update-container ${taskData.status === 'completed' ? 'completed-task' : ''}`}>
       <form onSubmit={handleSubmit}>
         <h1>Update Task</h1>
         <div className="form-group">

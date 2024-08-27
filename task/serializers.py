@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Task, CustomUser
+from datetime import date
 
 
 class TaskSerializer(serializers.ModelSerializer):
@@ -16,11 +17,9 @@ class TaskSerializer(serializers.ModelSerializer):
         ]
 
     def get_assigned_to_display(self, obj):
-        # Get usernames for assigned users
         return [user.username for user in obj.assigned_to.all()]
 
     def validate(self, data):
-        # Validate title uniqueness within the same project
         title = data.get('title')
         project = data.get('project')
 
@@ -29,9 +28,19 @@ class TaskSerializer(serializers.ModelSerializer):
                 {"title": "A task with this title already exists in this project."}
             )
 
-        # Validate date fields
         start_date = data.get('start_date')
         due_date = data.get('due_date')
+
+        # Validate that start_date and due_date are not in the past
+        if start_date and start_date < date.today():
+            raise serializers.ValidationError(
+                {"start_date": "Start date cannot be in the past."}
+            )
+
+        if due_date and due_date < date.today():
+            raise serializers.ValidationError(
+                {"due_date": "Due date cannot be in the past."}
+            )
 
         if start_date and due_date and start_date > due_date:
             raise serializers.ValidationError(

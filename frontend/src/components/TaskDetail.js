@@ -51,7 +51,12 @@ const TaskDetail = () => {
           <p><strong>Description:</strong> {task.description}</p>
           <p><strong>Status:</strong> {task.status}</p>
           <p><strong>Priority:</strong> {task.priority}</p>
-          <p><strong>Assigned To:</strong> {task.assigned_to ? task.assigned_to.map(user => user.username).join(', ') : 'None'}</p>
+          <p>
+            <strong>Assigned To: </strong>
+            {task.assigned_to_display && task.assigned_to_display.length > 0
+              ? task.assigned_to_display.join(', ')
+              : 'None'}
+          </p>
           <p><strong>Start Date:</strong> {task.start_date}</p>
           <p><strong>Due Date:</strong> {task.due_date}</p>
           <button onClick={() => navigate(`/projects/${id}/tasklist`)}>Back to Task List</button>

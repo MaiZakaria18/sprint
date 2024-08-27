@@ -1,0 +1,35 @@
+/* UserDetail.css */
+
+.user-detail-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-detail-header {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.user-detail-info {
+    font-size: 16px;
+    color: #333;
+}
+
+.user-detail-actions {
+    margin-top: 20px;
+}
+
+.user-detail-actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.user-detail-actions button:hover {
+    background-color: #0056b3;
+}
