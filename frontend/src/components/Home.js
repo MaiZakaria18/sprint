@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from './AuthContext';
 import './styles/components/Home.css';
 
+
 const Home = () => {
 	const { isAuthenticated } = useAuth();
 
@@ -18,7 +19,7 @@ const Home = () => {
 				{isAuthenticated ? (
 					<div className="user-actions">
 						<h3>Welcome</h3> {/* Display user information when authenticated */}
-            			<Link to="/projects/create" className="cta-button">
+						<Link to="/projects/create" className="cta-button">
 							Create Project
 						</Link>
 					</div>

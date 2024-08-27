@@ -60,7 +60,7 @@ const ProjectDetail = () => {
           <p><strong>Description:</strong> {project.description}</p>
           <p><strong>Start Date:</strong> {new Date(project.start_date).toLocaleDateString()}</p>
           <p><strong>End Date:</strong> {new Date(project.end_date).toLocaleDateString()}</p>
-          <p><strong>Status:</strong> {project.status}</p>
+
 
 
           <div className="project-actions">
